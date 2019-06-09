@@ -21,13 +21,18 @@ This lab provide an insight on the advantages of using Helm over using Kubernete
 
 Let's investigate how Helm can help us focus on other things by letting a chart do the work for us. The application is the [Guestbook App](https://github.com/IBM/guestbook), which is a sample multi-tier web application.
 
+1. Clone the repo
+
 ```$ git clone https://github.com/IBM/helm101```
 
 Let's go ahead and install the chart now.
 
-1. Install the app as a Helm chart:
+2. Install the app as a Helm chart:
 
-    ```$ helm install ./guestbook/ --name guestbook-demo --namespace helm-demo```
+    ```
+    $ cd helm101/charts
+    $ helm install ./guestbook/ --name guestbook-demo --namespace helm-demo
+    ```
     
     Note: `$ helm install` command will create the `helm-demo` namespace if it does not exist.
     
@@ -101,11 +106,6 @@ Let's go ahead and install the chart now.
 3. View the guestbook:
 
    You can now play with the guestbook that you just created by opening it in a browser (it might take a few moments for the guestbook to come up).
-
- * **Local Host:**
-    If you are running Kubernetes locally, view the guestbook by navigating to `http://localhost:3000` in your browser.
-
- * **Remote Host:**
     1. To view the guestbook on a remote host, locate the external IP and the port of the load balancer by following the "NOTES" section in the install output. The commands will be similar to the following:
     
        ```console

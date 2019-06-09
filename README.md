@@ -205,7 +205,15 @@ We'll update the previously deployed `guestbook-demo` application by using Helm.
     ```
     Note: The service type has changed (to `NodePort`) and a new port has been allocated (`31202` in this output case) to the guestbook service. All `redis-slave` resources have been removed.
     
-2. View the guestbook as per [Lab1](../Lab1/README.md), using the updated port for the guestbook service.
+2. View the guestbook using the updated port for the guestbook service.
+
+   ```console
+       $ kubectl get nodes -o wide
+       NAME           STATUS    ROLES     AGE       VERSION        EXTERNAL-IP      OS-IMAGE             KERNEL-VERSION        CONTAINER-RUNTIME  
+       10.47.122.98   Ready     <none>    1h        v1.10.11+IKS   173.193.92.112   Ubuntu 16.04.5 LTS   4.4.0-141-generic   docker://18.6.1
+       ```
+
+       In this scenario the URL is `http://173.193.92.112:31202`.
 
 Congratulations, you have now updated the applications! Helm does not require any manual changing of resources and is therefore so much easier to upgrade! All configurations can be set on the fly on the command line or by using override files. This is made possible from when the logic was added to the template files, which enables or disables the capability, depending on the flag set.
 

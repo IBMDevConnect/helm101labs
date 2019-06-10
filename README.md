@@ -24,10 +24,6 @@ $ ibmcloud login
 
 $ ibmcloud target --cf
 
-$ ibmcloud plugin install container-service -r Bluemix
-
-$ ibmcloud plugin install container-registry -r Bluemix
-
 $ ibmcloud cr login
 
 $ ibmcloud cr namespace-add <add-name>
@@ -42,6 +38,12 @@ $ ibmcloud cs cluster-config --cluster <cluster name>
 Set the KUBECONFIG environment variable. Copy the output from the previous command and paste it in your terminal. The command output looks similar to the following example:
 
 export KUBECONFIG=/Users/$USER/.bluemix/plugins/container-service/clusters/mybluechatter/kube-config-hou02-mybluechatter.yml
+
+```
+$ helm init
+$ helm version
+```
+
 
 # Lab 1. I just want to deploy!
 

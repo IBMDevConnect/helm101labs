@@ -156,6 +156,8 @@ Let's go ahead and install the chart now.
  
     2. Navigate to the output given (for example `http://50.23.5.136:31367`) in your browser. You should see the guestbook now displaying in your browser.
 
+![Guestbook](https://github.com/IBM/helm101/blob/master/tutorial/images/guestbook-page.png)
+
 From this lab, you can see that using Helm required less commands and less to think about (by giving it the chart path and not the individual files) versus using `kubectl`. Helm's application management provides the user with this simplicity.
 
 Move on to the next lab below to learn how to update our running app when the chart has been changed.

@@ -20,7 +20,7 @@ This lab provide an insight on the advantages of using Helm over using Kubernete
 ### Login to IBM Cloud, Install dependencies
 
 ```
-$ ibmcloud login
+$ ibmcloud login -r us-south
 
 $ ibmcloud target --cf
 

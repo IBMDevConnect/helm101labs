@@ -20,6 +20,9 @@ This lab provide an insight on the advantages of using Helm over using Kubernete
 ### Install Helm
 
 ```
+$ cd /tmp
+$ curl https://raw.githubusercontent.com/kubernetes/helm/master/scripts/get > install-helm.sh
+$ 
 $ helm init
 $ helm version
 ```

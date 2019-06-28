@@ -23,7 +23,7 @@ This lab provide an insight on the advantages of using Helm over using Kubernete
 $ cd /tmp
 $ wget https://get.helm.sh/helm-v2.14.1-linux-amd64.tar.gz
 $ tar -zxvf helm-v2.14.1-linux-amd64.tar.gz
-
+$ ./linux-amd64/helm
 
 $ helm init
 $ helm version

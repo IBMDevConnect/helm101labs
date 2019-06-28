@@ -51,7 +51,7 @@ Let's investigate how Helm can help us focus on other things by letting a chart 
 
 1. Clone the repo
 
-```$ git clone https://github.com/IBM/helm101```
+```$ git clone https://github.com/IBMDevConnect/helm101```
 
 Let's go ahead and install the chart now.
 

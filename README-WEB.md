@@ -20,8 +20,8 @@ $ wget https://get.helm.sh/helm-v2.14.1-linux-amd64.tar.gz
 $ tar -zxvf helm-v2.14.1-linux-amd64.tar.gz
 $ ./linux-amd64/helm
 
-$ helm init
-$ helm version
+$ ./helm init
+$ ./helm version
 ```
 
 # Lab 1. I just want to deploy!

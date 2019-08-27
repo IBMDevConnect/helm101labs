@@ -46,6 +46,9 @@ Let's go ahead and install the chart now.
     $ kubectl apply -f deployment.yaml
     $ kubectl apply -f service.yaml
     
+    $ kubectl create serviceaccount --namespace kube-system tiller
+    $ kubectl create clusterrolebinding tiller-cluster-rule --clusterrole=cluster-admin --serviceaccount=kube-system:tiller
+    $ kubectl patch deploy --namespace kube-system tiller-deploy -p '{"spec":{"template":{"spec":{"serviceAccount":"tiller"}}}}'
     
     $ cd helm101/charts
     $ helm install ./guestbook/ --name guestbook-demo --namespace helm-demo

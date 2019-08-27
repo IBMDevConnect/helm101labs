@@ -31,7 +31,7 @@ Let's investigate how Helm can help us focus on other things by letting a chart 
 
 ```$ git clone https://github.com/IBMDevConnect/helm101```
 
-2. Install the app as a Helm chart:
+2. Install Tiller
 
     ```
     $ cd helm101/tiller/
@@ -43,7 +43,11 @@ Let's investigate how Helm can help us focus on other things by letting a chart 
     $ kubectl patch deploy --namespace kube-system tiller-deploy -p '{"spec":{"template":{"spec":{"serviceAccount":"tiller"}}}}'
     
     $ kubectl create namespace helm-demo
+    ```   
     
+ 3. Install the app as a Helm chart:   
+ 
+    ```
     Go back to $ cd linux-amd64
     
     $ ./helm install ../helm101/charts/guestbook/ --generate-name --namespace helm-demo

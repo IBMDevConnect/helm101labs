@@ -18,7 +18,8 @@ This lab provide an insight on the advantages of using Helm over using Kubernete
 ```
 $ wget https://get.helm.sh/helm-v2.14.1-linux-amd64.tar.gz
 $ tar -zxvf helm-v2.14.1-linux-amd64.tar.gz
-$ ./linux-amd64/helm
+$ cd linux-amd64
+$ ./helm
 
 $ ./helm version
 ```
@@ -51,6 +52,10 @@ Let's investigate how Helm can help us focus on other things by letting a chart 
     Go back to $ cd linux-amd64
     
     $ ./helm install ../helm101/charts/guestbook/ --generate-name --namespace helm-demo
+    
+    Try below command, if previous command is throwing an error
+    
+    $ ./helm install ../helm101/charts/guestbook/ --namespace helm-demo --name guestbook-demo
     ```
     
     You should see output similar to the following:
@@ -63,20 +68,20 @@ Let's investigate how Helm can help us focus on other things by letting a chart 
     NOTES:
     1. Get the application URL by running these commands:
     NOTE: It may take a few minutes for the LoadBalancer IP to be available.
-        You can watch the status of by running 'kubectl get svc -w guestbook-1566891137 --namespace helm-demo'
-   export SERVICE_IP=$(kubectl get svc --namespace helm-demo guestbook-1566891137 -o   jsonpath='{.status.loadBalancer.ingress[0].ip}')
-   echo http://$SERVICE_IP:3000
-    ```
-    
+        You can watch the status of by running 'kubectl get svc -w guestbook-1566891137 --namespace helm-demo'  
+     export SERVICE_IP=$(kubectl get svc --namespace helm-demo guestbook-1566891137 -o  jsonpath='{.status.loadBalancer.ingress[0].ip}')
+  echo http://$SERVICE_IP:3000
+  ```
+  
     The chart install performs the Kubernetes deployments and service creations of the redis master and slaves, and the guestbook app, as one. This is because the chart is a collection of files that describe a related set of Kubernetes resources and Helm manages the creation of these resources via the Kubernetes API.    
     
-    To check the deployment, you can use `$ kubectl get deployment REPLACE_WITH_GUESTBOOK_NAME --namespace helm-demo`.
+    To check the deployment, you can use `$ kubectl get deployment guestbook-demo --namespace helm-demo`.
     
     You should see output similar to the following:
     
-    ```console
+    ```
     NAME             DESIRED   CURRENT   UP-TO-DATE   AVAILABLE   AGE
-    guestbook-1566891137   2         2         2            2           51m
+    guestbook-demo   2         2         2            2           51m
     ```
     
     To check the status of the running application, you can use `$ kubectl get pods --namespace helm-demo`.
@@ -92,14 +97,14 @@ Let's investigate how Helm can help us focus on other things by letting a chart 
    
     To check the services, you can run `$ kubectl get services --namespace helm-demo`.
     
-    ```console
+    ```
     NAME             TYPE           CLUSTER-IP       EXTERNAL-IP   PORT(S)          AGE
     guestbook-demo   LoadBalancer   172.21.43.244    <pending>     3000:31367/TCP   50m
     redis-master     ClusterIP      172.21.12.43     <none>        6379/TCP         50m
     redis-slave      ClusterIP      172.21.176.148   <none>        6379/TCP         50m
     ```
     
-    **Take a note of the guestbook-******* PORT** For example, 31367 is the port here.
+    **Take a note of the guestbook-demo PORT** For example, 31367 is the port here.
     
 3. View the guestbook:
 
